@@ -1,0 +1,35 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List of all tasks
+    cmds:
+      - task --list-all
+
+  dev:
+   desc: Runs the applicatin with 'air' for live reload on code change
+   cmds:
+     - PORT=8080 air
+
+  run:
+   desc: Runs the application 
+   cmds:
+     - PORT=8080 go run main.go
+
+  git:push:
+    desc: git push
+    preconditions:
+      - sh: if [[ -z {{.CLI_ARGS}} ]]; then exit 1; fi
+        msg: "no commit message found, add -- <commit message>"
+        # test existence of modified files, grep will exit with a failure if there is no match
+      - sh: git ls-files -m -o | grep -E '.'
+        msg: "nothing to do, no modified files"
+    #status:
+    #  - git status
+    cmds:
+      - git add --all
+      - git commit -m "{{.CLI_ARGS}}"
+      - git push
+
+
+  
