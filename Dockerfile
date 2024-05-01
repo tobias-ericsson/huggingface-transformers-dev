@@ -12,7 +12,7 @@ RUN adduser \
 WORKDIR /app
 
 COPY main.go main.go
-#COPY go.mod go.mod
+COPY go.mod go.mod
 
 #RUN go mod download
 #RUN go mod verify
