@@ -31,5 +31,10 @@ tasks:
       - git commit -m "{{.CLI_ARGS}}"
       - git push
 
+  deploy:
+    desc: Deploys the application 
+    cmds:
+     - task: git:push 
+
 
   
