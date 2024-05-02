@@ -51,7 +51,7 @@ async function isHotDog (img) {
 
   const output = await classifier(
     img.src,
-    ['cat', 'dog', 'hot dog', 'sausage'],
+    ['cat', 'hotdog', 'hot dog', 'sausage'],
     {
       hypothesis_template: 'a {}'
     }
@@ -61,7 +61,7 @@ async function isHotDog (img) {
   var isHotDog = false
   for (let i = 0; i < output.length; i++) {
     if (
-      (output[i].label === 'hot dog' || output[i].label == 'sausage') &&
+      (output[i].label === 'hot dog' || output[i].label == 'hotdog') &&
       output[i].score > 0.78
     ) {
       console.log(output[i])
