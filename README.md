@@ -12,6 +12,12 @@
 
 Akind Platform and the Akind Wonderful Enterprise Service Orchestration and Management Engine [AWESOME].
 
+https://docs.akind.tech/docs/how-to/onboarding/
+
+https://docs.akind.tech/docs/how-to/install-cli/
+
+https://docs.akind.tech/docs/tutorials/deploy-your-first-service/
+
 ```
 aw login
 aw init hotdog-or-not
@@ -20,9 +26,15 @@ aw init hotdog-or-not
 
 ### Codespaces
 
+[.devcontainer/devcontainer.json](.devcontainer/devcontainer.json)
+
+To rebuild container `Shift+Command+P >rebuild`
+
 ### Taskfile
 
 https://taskfile.dev/
+
+[Taskfile.yml](Taskfile.yml)
 
 ### Huggingface transformers.js
 
@@ -38,4 +50,11 @@ a cross-platform runtime environment that can execute models created in various 
 Machine learning inference is the process of using a trained model to make prediction on new data.
 
 https://huggingface.co/docs/transformers.js/en/index
+
+
+More AWESOME
+
+```
+aw status
+```
 
