@@ -52,9 +52,13 @@ Machine learning inference is the process of using a trained model to make predi
 https://huggingface.co/docs/transformers.js/en/index
 
 
-More AWESOME
+### More AWESOME
 
 ```
 aw status
+aw access:enable -s hotdog-or-not -e dev
+aw log -s hotdog-or-not -e dev -t
 ```
+
+https://hotdog-or-not.dev.akind.tech/
 
