@@ -73,7 +73,7 @@ async function isHotDog (img) {
     status.textContent = 'Hot dog'
     status.style.color = 'green'
   } else {
-    status.textContent = 'Not a hot dog'
+    status.textContent = 'Not hot dog'
     status.style.color = 'red'
   }
 }
