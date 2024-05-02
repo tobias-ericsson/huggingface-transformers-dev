@@ -60,5 +60,11 @@ aw access:enable -s hotdog-or-not -e dev
 aw log -s hotdog-or-not -e dev -t
 ```
 
+Sensible defaults:
+
+* Dockerfile
+* Listen on port :80
+* Health check on /health
+
 https://hotdog-or-not.dev.akind.tech/
 
