@@ -20,7 +20,7 @@ tasks:
     desc: git push
     preconditions:
       - sh: if [[ -z {{.CLI_ARGS}} ]]; then exit 1; fi
-        msg: "no commit message found, add -- <commit message>"
+        msg: "no commit message found, add -- '<commit message>'"
         # test existence of modified files, grep will exit with a failure if there is no match
       - sh: git ls-files -m -o | grep -E '.'
         msg: "nothing to do, no modified files"
