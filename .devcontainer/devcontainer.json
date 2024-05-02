@@ -1,0 +1,22 @@
+{
+    "name": "Go",
+	"image": "mcr.microsoft.com/devcontainers/go:1-bullseye",
+	//"image": "mcr.microsoft.com/devcontainers/universal:2",
+    "customizations": {
+		"vscode": {
+			"extensions": [
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh"
+			}
+		}
+	},
+	"features": {
+		//"ghcr.io/dlouwers/devcontainer-features/devbox:1": {},
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": "true",
+            "configureZshAsDefaultShell": "true"
+          }
+	},
+    "postCreateCommand": ".devcontainer/postCreateCommand-init.sh"
+}
