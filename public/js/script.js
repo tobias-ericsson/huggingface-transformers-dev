@@ -10,13 +10,19 @@ env.allowLocalModels = false
 const status = document.getElementById('status')
 const fileUpload = document.getElementById('file-upload')
 const imageContainer = document.getElementById('image-container')
+// Create a reference to the worker object.
+var worker = null
 
 // Create a new object detection pipeline
 status.textContent = 'Loading model...'
 status.style.color = 'black'
 const detector = await pipeline('object-detection', 'Xenova/detr-resnet-50')
+const classifier = await pipeline(
+  'zero-shot-image-classification',
+  'Xenova/clip-vit-large-patch14-336'
+)
 
-status.textContent = 'Ready'
+status.innerHTML = 'Ready'
 status.style.color = 'green'
 
 fileUpload.addEventListener('change', function (e) {
@@ -40,14 +46,9 @@ fileUpload.addEventListener('change', function (e) {
 })
 
 async function isHotDog (img) {
-  //status.textContent = 'Analysing...'
-  //status.style.color = 'black'
-  //console.log(img.src)
-
-  const classifier = await pipeline(
-    'zero-shot-image-classification',
-    'Xenova/clip-vit-large-patch14-336'
-  )
+  status.innerHTML =
+    'Analysing... <img id="svg-spinner" src="img/loading-spinner.svg" />'
+  status.style.color = 'black'
 
   const output = await classifier(
     img.src,
@@ -60,10 +61,7 @@ async function isHotDog (img) {
   console.log(output)
   var isHotDog = false
   for (let i = 0; i < output.length; i++) {
-    if (
-      (output[i].label === 'hot dog') &&
-      output[i].score > 0.78
-    ) {
+    if (output[i].label === 'hot dog' && output[i].score > 0.78) {
       console.log(output[i])
       isHotDog = true
     }
@@ -80,13 +78,10 @@ async function isHotDog (img) {
 
 // Detect objects in the image
 async function detect (img) {
-  status.textContent = 'Analysing...'
-  status.style.color = 'black'
   const output = await detector(img.src, {
     threshold: 0.5,
     percentage: true
   })
-  //status.textContent = ''
   output.forEach(renderBox)
 }
 
