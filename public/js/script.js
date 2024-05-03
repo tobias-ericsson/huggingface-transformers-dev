@@ -10,8 +10,6 @@ env.allowLocalModels = false
 const status = document.getElementById('status')
 const fileUpload = document.getElementById('file-upload')
 const imageContainer = document.getElementById('image-container')
-// Create a reference to the worker object.
-var worker = null
 
 // Create a new object detection pipeline
 status.textContent = 'Loading model...'
