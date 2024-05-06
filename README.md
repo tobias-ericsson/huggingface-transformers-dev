@@ -2,6 +2,9 @@
 
 ## What are we doing?
 
+To learn and experiment with Huggingface Transformers.js we develop a "Hotdog or Not" 
+application where the machine learning models run in the browser.
+
 [Silicon Valley hotdog or not](https://www.youtube.com/watch?v=vIci3C4JkL0&t=37s)
 
 ### Codespaces
